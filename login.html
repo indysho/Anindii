@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Alumni</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+    <button onclick="goBack()" class="go-back-button">
+        Go Back
+    </button>
+
+    <div class="container">
+        <header>
+            <div class="logo">
+                <img src="Politeknik_Negeri_Fakfak.webp" alt="Logo">
+                <span class="site-title">RUANG ALUMNI & CEK IJAZAH</span>
+            </div>
+            <div class="date">
+                <script type="text/javascript">
+                  document.write(new Date().toLocaleDateString('id-ID', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }));
+                </script>
+            </div>
+        </header>
+        <div class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="#">Dashboard</a></li>
+                </ul>
+            </nav>
+        </div>
+        <main>
+            <section class="login-section">
+                <h1>Login Alumni</h1>
+                <form class="login-form" id="loginForm">
+                    <label for="username">User Name</label>
+                    <input type="text" id="username" placeholder="Enter NIM" required>
+                
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Tanggal Lahir : 2007-04-14" required>
+                
+                    <div class="recaptcha">
+                        <input type="checkbox" id="recaptcha" required>
+                        <label for="recaptcha">I'm not a robot</label>
+                        <div class="captcha-box">
+                            <img src="captcha.png" alt="Captcha">
+                        </div>
+                    </div>
+                
+                    <button type="submit">Login Alumni</button>
+                </form>
+                
+                <!-- Elemen untuk menampilkan pesan kesalahan -->
+                <div id="errorMessage" style="color: red; margin-top: 10px;"></div>
+                
+                <div class="ad-banner">
+                    <img src="info.jpg" alt="Ad Banner">
+                </div>
+            </section>
+            <section class="info-section">
+                <div class="about">
+                    <h2>About</h2>
+                    <p>TENTANG RUANG ALUMNI</p>
+                    <p>Ruang Alumni ditujukan bagi alumni Politeknik Negeri Fakfak seluruh 
+                        angkatan dalam rangka proses pendataan dan tracer studi alumni, 
+                        sehingga antara Polinef dan Alumni terjadi suatu komunikasi yang harmonis</p>
+                </div>
+                <div class="contact">
+                    <h2>Kontak Kami</h2>
+                    <ul>
+                        <li>Phone : <a href="tel:0822-4862-0075">0822-4862-0075</a></li>
+                        <li>Instagram : <a href="https://www.instagram.com/official.polinef/">@Official.Polinef</a></li>
+                        <li>Polinef Information Center : <a href="https://polinef.siakadcloud.com/spmbfront/home">https://polinef.siakadcloud.com</a></li>
+                    </ul>
+                </div>
+                <div class="notice">
+                    <p>Untuk mengakses Ruang Alumni, silahkan LOGIN terlebih dahulu pada form yang telah disediakan, 
+                        gunakan NIM untuk username dan tanggal lahir (yyyy-mm-dd) untuk password pertama kali. 
+                        Setelah itu ubahlah password Anda sesuai dengan yang Anda kehendaki</p>
+                </div>
+            </section>
+        </main>
+    </div>
+    
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+    
+    
+    <script>
+        const loginForm = document.querySelector('.login-form');
+const usernameInput = document.getElementById('username');
+const passwordInput = document.getElementById('password');
+
+loginForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const username = usernameInput.value;
+    const password = passwordInput.value;
+
+    if ((username === 'AdminIndy' && password === 'IndyZee') ||
+        (username === 'AdminItha' && password === 'RostaRmbia') ||
+        (username === 'AdminAftia' && password === 'EndangAftia')) {
+        window.location.href = 'admin.html';
+
+    } else if (username !== '' && isValidNIM(username)) {
+            window.location.href = 'index_stlhlogin.html';
+        } else {
+            showError('Username atau password salah');
+        }
+    });
+
+    function isValidNIM(username) {
+        // Add validation logic for NIM here, e.g., checking the format
+        return true; // Placeholder, assumes NIM is always valid
+    }
+
+    function showError(message) {
+        let errorDiv = document.querySelector('.error-message');
+        if (!errorDiv) {
+            errorDiv = document.createElement('div');
+            errorDiv.className = 'error-message';
+            loginForm.appendChild(errorDiv);
+        }
+        errorDiv.textContent = message;
+    }
+
+    function clearError() {
+        const errorDiv = document.querySelector('.error-message');
+        if (errorDiv) {
+            errorDiv.remove();
+        }
+    }
+
+
+
+    
+    </script>
+    
+
+</body>
+
+</html>

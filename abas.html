@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alumni Profile</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        .profile-container {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 1rem;
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 1rem;
+        }
+
+        .profile-image {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #e5e7eb;
+        }
+
+        .profile-image img {
+            border-radius: 0px;
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            aspect-ratio: 3 / 4;
+        }
+
+        .profile-details {
+            padding-left: 1rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .profile-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .section-title {
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            color: #2c7a7b;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title::before {
+            content: '🏫';
+            margin-right: 10px;
+        }
+
+        .section-content {
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .highlight {
+            color: red;
+            font-weight: 700;
+            text-align: center;
+            margin: 1rem 0;
+        }
+
+        .divider {
+            border-top: 1px solid #ddd;
+            margin: 20px 0;
+            grid-column: 1 / -1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mx-auto my-10 p-5">
+        <div class="profile-container">
+            <div class="profile-image">
+                <img src="Anita.jpg" alt="Profile Image">
+            </div>
+            <div class="profile-details">
+                <!-- Left Side: Biodata Alumni -->
+                <div>
+                    <div class="profile-section">
+                        <h2 class="section-title">Biodata Alumni</h2>
+                        <div class="section-content">
+                            <p><strong>Nama Lengkap:</strong> Abas ali</p>
+                            <p><strong>NIM/Nomor Induk Mahasiswa:</strong> 16324562</p>
+                            <p><strong>Tempat Tanggal Lahir:</strong> Fak-fak, 19 Juni 2003</p>
+                            <p><strong>Jenis Kelamin:</strong> Laki-laki</p>
+                            <p><strong>Alamat:</strong> Jln.nuri</p>
+                            <p><strong>Jurusan:</strong> Teknik sipil</p>
+                            <p><strong>Tahun Lulus:</strong> 2023</p>
+                        </div>
+                    </div>
+
+                    <div class="divider"></div>
+
+                    <div>
+                        <h2 class="section-title">Pekerjaan Saat Ini</h2>
+                        <div class="section-content">
+                            <h3>PLN</h3>
+                        </div>
+                        <div class="divider"></div>
+                        <h2 class="section-title">Pendapatan per bulan</h2>
+                        <div class="section-content">
+                            <h3>Rp. 3.500.000</h3>
+                        </div>
+                        <div class="divider"></div>
+                        <p class="highlight">Aktif</p>
+                    </div>
+                    <div class="divider"></div>
+                    <h2 class="section-title">Kontak</h2>
+                    <div class="section-content">
+                        <h3>Gmail : abasss001@gmail.com</h3>
+                        <h3>Phone : 081339214560</h3>
+                    </div>
+                </div>
+
+                <!-- Right Side: Riwayat Studi/Pekerjaan -->
+                <div>
+                    <div class="profile-section">
+                        <h2 class="section-title">Riwayat Studi/Pekerjaan</h2>
+                        <div class="section-content">
+                            <p>SDIT Assalam, Bekasi <span class="text-gray-500">2005 - 2011</span></p>
+                            <p>SMPN 11 Kota Bekasi, Bekasi <span class="text-gray-500">2011 - 2014</span></p>
+                            <p>SMAN 1 Tambun Utara, Bekasi <span class="text-gray-500">2014 - 2017</span></p>
+                            <p>Universitas Bhayangkara, Bekasi <span class="text-gray-500">2018 - 2022</span></p>
+                        </div>
+                    </div>
+
+                    <div class="divider"></div>
+
+                    <div class="profile-section">
+                        <h2 class="section-title">Additional Info</h2>
+                        <div class="section-content">
+                            <!-- Additional Info here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Action Buttons -->
+            <button onclick="goBack()" class="py-2 px-4 border border-gray-300 rounded text-gray-700 bg-white hover:bg-gray-200 mt-4">Go Back</button>
+            <button onclick="editProfile()" class="py-2 px-4 border border-blue-500 rounded text-white bg-blue-500 hover:bg-blue-600 mt-4 ml-2">Edit</button>
+        </div>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+
+        function editProfile() {
+        }
+    </script>
+</body>
+
+</html>
