@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Alumni</title>
+    <link rel="stylesheet" href="daftar.css">
+    <link href="https://unpkg.com/tailwindcss@^2.2.0/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <button class="toggle-button" id="toggle-button">&#9776;</button>
+
+    <div class="sidebar inactive" id="sidebar">
+        <ul>
+            <br><br><br>
+            <li><a href="daftar.html">Alumni List</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="#admin&about">Admin & ABout</a></li>
+            <li><a href="#agenda_alumni">Agenda Kegiatan Alumni</a></li>
+        </ul>
+    </div>
+
+    <div class="container mx-auto p-4 pl-12">
+        <h1 class="text-2xl font-bold mb-4">Dashboard</h1>
+        <div class="flex flex-wrap -mx-4">
+            <div class="w-full md:w-1/2 xl:w-2/3 p-4">
+                <div class="chart-container">
+                    <canvas id="main-pie-chart" width="400" height="200"></canvas>
+                </div>
+            </div>
+            <div class="w-full md:w-1/2 xl:w-1/3 p-4">
+                <div class="flex flex-wrap -mx-4">
+                    <div class="w-1/2 p-4">
+                        <div class="chart-container">
+                            <canvas id="job-pie-chart" width="200" height="100"></canvas>
+                        </div>
+                    </div>
+                    <div class="w-1/2 p-4">
+                        <div class="chart-container">
+                            <canvas id="study-pie-chart" width="200" height="100"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            // Main pie chart
+            const mainCtx = document.getElementById('main-pie-chart').getContext('2d');
+            const mainChart = new Chart(mainCtx, {
+                type: 'pie',
+                data: {
+                    labels: ['Alumni who have found work', 'Alumni still pursuing undergraduate degree'],
+                    datasets: [{
+                        label: 'Alumni Status',
+                        data: [60, 40], // adjust these values based on your data
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    title: {
+                        display: true,
+                        text: 'Alumni Status'
+                    }
+                }
+            });
+
+            // Job pie chart
+            const jobCtx = document.getElementById('job-pie-chart').getContext('2d');
+            const jobChart = new Chart(jobCtx, {
+                type: 'pie',
+                data: {
+                    labels: ['Software Engineer', 'Data Analyst', 'Marketing', 'Others'],
+                    datasets: [{
+                        label: 'Job Distribution',
+                        data: [30, 20, 15, 35], // adjust these values based on your data
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    title: {
+                        display: true,
+                        text: 'Job Distribution'
+                    }
+                }
+            });
+
+            // Study pie chart
+            const studyCtx = document.getElementById('study-pie-chart').getContext('2d');
+            const studyChart = new Chart(studyCtx, {
+                type: 'pie',
+                data: {
+                    labels: ['Computer Science', 'Business', 'Engineering', 'Others'],
+                    datasets: [{
+                        label: 'Study Distribution',
+                        data: [40, 25, 20, 15], // adjust these values based on your data
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    title: {
+                        display: true,
+                        text: 'Study Distribution'
+                    }
+                }
+            });
+        </script>
+
+        <button onclick="goBack()" class="py-2 px-4 border border-gray-300 
+rounded text-gray-700 bg-white hover:bg-gray-200 mt-4">Go Back</button>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+
+        const sidebar = document.getElementById('sidebar');
+        const toggleButton = document.getElementById('toggle-button');
+
+        toggleButton.addEventListener('click', () => {
+            sidebar.classList.toggle('inactive');
+        });
+    </script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
