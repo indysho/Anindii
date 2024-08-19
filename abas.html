@@ -14,21 +14,14 @@
         }
 
         .profile-container {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 1rem;
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
             background-color: white;
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             padding: 1rem;
-        }
-
-        .profile-image {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #e5e7eb;
         }
 
         .profile-image img {
@@ -39,34 +32,40 @@
             aspect-ratio: 3 / 4;
         }
 
-        .profile-details {
-            padding-left: 1rem;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
+        .table-layout {
+            width: 100%;
+            border-collapse: collapse;
         }
 
-        .profile-section {
-            margin-bottom: 1.5rem;
+        .table-layout td {
+            vertical-align: top;
+            padding: 10px;
+            border: 1px solid #ddd;
         }
 
         .section-title {
             font-weight: 500;
-            display: flex;
-            align-items: center;
             color: #2c7a7b;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             margin-bottom: 0.5rem;
         }
 
-        .section-title::before {
-            content: '🏫';
-            margin-right: 10px;
+        .biodata-table {
+            width: 100%;
+            border-spacing: 10px;
+            background-color: transparent;
+            border: none;
         }
 
-        .section-content {
-            font-size: 0.95rem;
-            line-height: 1.6;
+        .biodata-table td {
+            padding: 5px;
+            border: none;
+        }
+
+        .biodata-table td:first-child {
+            font-weight: bold;
+            color: #555;
+            width: 200px;
         }
 
         .highlight {
@@ -79,7 +78,36 @@
         .divider {
             border-top: 1px solid #ddd;
             margin: 20px 0;
-            grid-column: 1 / -1;
+        }
+
+        .contact-info {
+            padding: 10px;
+            border: 1px solid transparent; /* Transparent border */
+            background-color: transparent; /* Transparent background */
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+
+        .contact-info .section-title {
+            margin: 0;
+            color: #2c7a7b;
+            font-weight: 500;
+            font-size: 1.3rem;
+        }
+
+        .contact-info h3 {
+            margin: 5px 0;
+            font-weight: 400;
+            color: #333;
+        }
+
+        .action-buttons {
+            text-align: right;
+            margin-top: 1rem;
+        }
+
+        .action-buttons button {
+            margin-left: 0.5rem;
         }
     </style>
 </head>
@@ -87,84 +115,98 @@
 <body>
     <div class="container mx-auto my-10 p-5">
         <div class="profile-container">
-            <div class="profile-image">
-                <img src="Anita.jpg" alt="Profile Image">
-            </div>
-            <div class="profile-details">
-                <!-- Left Side: Biodata Alumni -->
-                <div>
-                    <div class="profile-section">
-                        <h2 class="section-title">Biodata Alumni</h2>
-                        <div class="section-content">
-                            <p><strong>Nama Lengkap:</strong> Abas ali</p>
-                            <p><strong>NIM/Nomor Induk Mahasiswa:</strong> 16324562</p>
-                            <p><strong>Tempat Tanggal Lahir:</strong> Fak-fak, 19 Juni 2003</p>
-                            <p><strong>Jenis Kelamin:</strong> Laki-laki</p>
-                            <p><strong>Alamat:</strong> Jln.nuri</p>
-                            <p><strong>Jurusan:</strong> Teknik sipil</p>
-                            <p><strong>Tahun Lulus:</strong> 2023</p>
+            <table class="table-layout">
+                <tr>
+                    <td rowspan="6" class="profile-image" style="width: 30%;">
+                        <img src="dorarock.jpeg" alt="Profile Image">
+                        <div class="contact-info">
+                            <div class="section-title">Kontak</div>
+                            <h3>Gmail : abasss001@gmail.com</h3>
+                            <h3>Phone : 081339214560</h3>
                         </div>
-                    </div>
-
-                    <div class="divider"></div>
-
-                    <div>
-                        <h2 class="section-title">Pekerjaan Saat Ini</h2>
-                        <div class="section-content">
-                            <h3>PLN</h3>
+                    </td>
+                    <td colspan="2" class="section-title">Biodata Alumni</td>
+                    </tr>
+                    <tr>
+                    <td colspan="2">
+                        <table class="biodata-table">
+                            <tr>
+                                <td>Nama Lengkap</td>
+                                <td>: Abas ali</td>
+                            </tr>
+                            <tr>
+                                <td>Nomor Induk Mahasiswa</td>
+                                <td>: 16324562</td>
+                            </tr>
+                            <tr>
+                                <td>Tempat Tanggal Lahir</td>
+                                <td>:  Fak-fak, 19 Juni 2003</td>
+                            </tr>
+                            <tr>
+                                <td>Jenis Kelamin</td>
+                                <td>: Laki-Laki</td>
+                            </tr>
+                            <tr>
+                                <td>Alamat</td>
+                                <td>: Jln.nuri</td>
+                            </tr>
+                            <tr>
+                                <td>Jurusan</td>
+                                <td>: Teknik sipil</td>
+                            </tr>
+                            <tr>
+                                <td>Tahun Lulus</td>
+                                <td>: 2023</td>
+                            </tr>                    
+                         </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="section-title">Pekerjaan Saat Ini</td>
+                    <td class="section-title">Riwayat Studi/Pekerjaan</td>
+                </tr>
+                <tr>
+                    <td>
+                        <h3>PLN</h3>
+                    </td>
+                    <td>
+                        <p>SDIT Assalam, Bekasi <span class="text-gray-500">2005 - 2011</span></p>
+                        <p>SMPN 11 Kota Bekasi, Bekasi <span class="text-gray-500">2011 - 2014</span></p>
+                        <p>SMAN 1 Tambun Utara, Bekasi <span class="text-gray-500">2014 - 2017</span></p>
+                        <p>Universitas Bhayangkara, Bekasi <span class="text-gray-500">2018 - 2022</span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="section-title">Pendapatan per bulan</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        <h3>Rp. 3.500.000</h3>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <div class="action-buttons">
+                            <button onclick="goBack()" class="py-2 px-4 border border-gray-300 rounded text-gray-700 bg-white hover:bg-gray-200">Go Back</button>
+                            <button onclick="editProfile()" class="py-2 px-4 border border-blue-500 rounded text-white bg-blue-500 hover:bg-blue-600">Edit</button>
                         </div>
-                        <div class="divider"></div>
-                        <h2 class="section-title">Pendapatan per bulan</h2>
-                        <div class="section-content">
-                            <h3>Rp. 3.500.000</h3>
-                        </div>
-                        <div class="divider"></div>
-                        <p class="highlight">Aktif</p>
-                    </div>
-                    <div class="divider"></div>
-                    <h2 class="section-title">Kontak</h2>
-                    <div class="section-content">
-                        <h3>Gmail : abasss001@gmail.com</h3>
-                        <h3>Phone : 081339214560</h3>
-                    </div>
-                </div>
-
-                <!-- Right Side: Riwayat Studi/Pekerjaan -->
-                <div>
-                    <div class="profile-section">
-                        <h2 class="section-title">Riwayat Studi/Pekerjaan</h2>
-                        <div class="section-content">
-                            <p>SDIT Assalam, Bekasi <span class="text-gray-500">2005 - 2011</span></p>
-                            <p>SMPN 11 Kota Bekasi, Bekasi <span class="text-gray-500">2011 - 2014</span></p>
-                            <p>SMAN 1 Tambun Utara, Bekasi <span class="text-gray-500">2014 - 2017</span></p>
-                            <p>Universitas Bhayangkara, Bekasi <span class="text-gray-500">2018 - 2022</span></p>
-                        </div>
-                    </div>
-
-                    <div class="divider"></div>
-
-                    <div class="profile-section">
-                        <h2 class="section-title">Additional Info</h2>
-                        <div class="section-content">
-                            <!-- Additional Info here -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Action Buttons -->
-            <button onclick="goBack()" class="py-2 px-4 border border-gray-300 rounded text-gray-700 bg-white hover:bg-gray-200 mt-4">Go Back</button>
-            <button onclick="editProfile()" class="py-2 px-4 border border-blue-500 rounded text-white bg-blue-500 hover:bg-blue-600 mt-4 ml-2">Edit</button>
+                    </td>
+                </tr>
+            </table>
         </div>
-    </div>
+    </div>      
+<script>
+    function goBack() {
+        window.location.href = 'daftar.html';  // Redirects to daftar.html
+    }
 
-    <script>
-        function goBack() {
-            window.history.back();
-        }
+    function editProfile() {
+        // Your edit profile functionality here
+    }
+</script>
 
-        function editProfile() {
-        }
-    </script>
 </body>
 
 </html>
