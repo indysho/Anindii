@@ -253,76 +253,78 @@ nav ul li a:hover {
 
 
 /* Add your existing CSS here */
+/* Tentang Section */
 #tentang {
+    padding: 20px;
+}
+
+.tentang-content {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-  }
-
-  .content-text {
-    flex-basis: 60%; /* adjust the width of the text container */
-    padding: 20px;
-  }
-
-
-
-
-#tentang h2 {
-    text-align: center; /* Centers the text */
+    gap: 20px; /* Add gap between content-text and menu-alumni */
 }
 
-.menu-alumni h3 {
-    font-size: 1.8em;
-    color: #1d0a54;
-    margin-bottom: 10px;
-    text-align: center; /* Add this line */
+.content-text {
+    flex: 1 1 60%; /* Flex-grow: 1, Flex-shrink: 1, Flex-basis: 60% */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.content-text img {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 20px;
 }
 
 .menu-alumni {
-  flex-basis: 30%; /* adjust the width of the menu container */
-  padding: 20px;
-  background-color: rgba(255, 255, 255, 0.8);
-  border-radius: 20px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    flex: 1 1 30%; /* Flex-grow: 1, Flex-shrink: 1, Flex-basis: 30% */
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .menu-alumni h3 {
-  text-align: center;
     font-size: 1.8em;
     color: #1d0a54;
     margin-bottom: 10px;
+    text-align: center;
 }
 
 .menu-alumni ul {
     list-style-type: none;
     padding-left: 0;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    gap: 10px;
 }
 
 .menu-alumni ul li {
     margin-bottom: 10px;
+    display: flex;
+    align-items: center;
 }
 
 .menu-alumni ul li a {
     text-decoration: none;
     color: #1d0a54;
-    font-size: 1.2em;
-    background-color: rgba(8, 23, 156, 0.1);
-    padding: 10px;
-    border-radius: 5px;
-    display: block;
-    transition: background-color 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
 }
 
-.menu-alumni ul li a:hover {
-    background-color: rgba(8, 23, 156, 0.3);
-}
 
-#tentang img {
-    max-width: 50%; /* Adjust percentage as needed */
-    height: auto; /* Keeps the aspect ratio */
-    display: block; /* Ensures the image behaves as a block element */
-    margin: 0 auto; /* Centers the image horizontally */
-}
+
 
 
 
