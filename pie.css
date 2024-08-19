@@ -1,0 +1,68 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f5f5f5;
+}
+
+.dashboard-container {
+    width: 90%;
+    max-width: 1200px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.chart-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.chart-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    max-width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.chart-card h3 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+canvas {
+    max-width: 100%;
+    height: auto;
+}
+
+
+
+
+.container-fluid {
+    padding: 0; /* Remove padding if it's pushing content inward */
+}
+
+.card-body {
+    overflow-x: auto; /* Ensure the table doesn't overflow the container */
+}
+
+table {
+    width: 100%; /* Ensure the table takes up the full width of its container */
+}
+
+h1.mt-4 {
+    margin-top: 20px; /* Adjust the top margin to bring the title into view */
+    text-align: center; /* Optional: Center the title for better appearance */
+}
