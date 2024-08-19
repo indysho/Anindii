@@ -14,21 +14,14 @@
         }
 
         .profile-container {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 1rem;
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
             background-color: white;
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             padding: 1rem;
-        }
-
-        .profile-image {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #e5e7eb;
         }
 
         .profile-image img {
@@ -39,34 +32,40 @@
             aspect-ratio: 3 / 4;
         }
 
-        .profile-details {
-            padding-left: 1rem;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
+        .table-layout {
+            width: 100%;
+            border-collapse: collapse;
         }
 
-        .profile-section {
-            margin-bottom: 1.5rem;
+        .table-layout td {
+            vertical-align: top;
+            padding: 10px;
+            border: 1px solid #ddd;
         }
 
         .section-title {
             font-weight: 500;
-            display: flex;
-            align-items: center;
             color: #2c7a7b;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             margin-bottom: 0.5rem;
         }
 
-        .section-title::before {
-            content: '🏫';
-            margin-right: 10px;
+        .biodata-table {
+            width: 100%;
+            border-spacing: 10px;
+            background-color: transparent;
+            border: none;
         }
 
-        .section-content {
-            font-size: 0.95rem;
-            line-height: 1.6;
+        .biodata-table td {
+            padding: 5px;
+            border: none;
+        }
+
+        .biodata-table td:first-child {
+            font-weight: bold;
+            color: #555;
+            width: 200px;
         }
 
         .highlight {
@@ -79,7 +78,36 @@
         .divider {
             border-top: 1px solid #ddd;
             margin: 20px 0;
-            grid-column: 1 / -1;
+        }
+
+        .contact-info {
+            padding: 10px;
+            border: 1px solid transparent; /* Transparent border */
+            background-color: transparent; /* Transparent background */
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+
+        .contact-info .section-title {
+            margin: 0;
+            color: #2c7a7b;
+            font-weight: 500;
+            font-size: 1.3rem;
+        }
+
+        .contact-info h3 {
+            margin: 5px 0;
+            font-weight: 400;
+            color: #333;
+        }
+
+        .action-buttons {
+            text-align: right;
+            margin-top: 1rem;
+        }
+
+        .action-buttons button {
+            margin-left: 0.5rem;
         }
     </style>
 </head>
@@ -90,7 +118,7 @@
             <table class="table-layout">
                 <tr>
                     <td rowspan="6" class="profile-image" style="width: 30%;">
-                        <img src="Anita.jpg" alt="Profile Image">
+                        <img src="dorarock.jpeg" alt="Profile Image">
                         <div class="contact-info">
                             <div class="section-title">Kontak</div>
                             <h3>Gmail : af_putriii10@gmail.com</h3>
@@ -128,9 +156,9 @@
                             </tr>
                             <tr>
                                 <td>Tahun Lulus</td>
-                                <td>: 20220</td>
-                            </tr>
-                        </table>
+                                <td>: 2020</td>
+                            </tr>         
+                         </table>
                     </td>
                 </tr>
                 <tr>
@@ -139,7 +167,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <h3>Pengusaha ikan</h3>
+                        <h3>Lanjut S1</h3>
                     </td>
                     <td>
                         <p>SDIT Assalam, Bekasi <span class="text-gray-500">2005 - 2011</span></p>
@@ -154,7 +182,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <h3>Rp. 5.500.000</h3>
+                        <h3>Rp. 1.000.000</h3>
                     </td>
                     <td></td>
                 </tr>
@@ -167,9 +195,8 @@
                     </td>
                 </tr>
             </table>
-            </div>
-            </div>
-            
+        </div>
+    </div>      
 <script>
     function goBack() {
         window.location.href = 'daftar.html';  // Redirects to daftar.html
