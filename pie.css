@@ -3,13 +3,14 @@ body {
     margin: 0;
     padding: 0;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     background-color: #f5f5f5;
 }
 
-.dashboard-container {
+.container-fluid {
     width: 90%;
     max-width: 1200px;
 }
@@ -17,6 +18,18 @@ body {
 h1 {
     text-align: center;
     margin-bottom: 20px;
+}
+
+.row {
+    justify-content: center;
+}
+
+.card {
+    text-align: center;
+}
+
+.dashboard-container {
+    width: 100%;
 }
 
 .chart-container {
@@ -47,64 +60,8 @@ canvas {
     height: auto;
 }
 
-
-
-
-
-.table-container {
+.footer {
     width: 100%;
-    overflow-x: auto;
+    margin-top: auto;
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-th, td {
-    padding: 10px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-}
-
-th[colspan="5"] {
-    text-align: right;
-    padding-right: 10px;
-}
-
-.tambah-data-btn {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    cursor: pointer;
-    font-size: 14px;
-    border-radius: 4px;
-}
-
-.tambah-data-btn:hover {
-    background-color: #45a049;
-}
-
-.edit-btn, .look-btn, .erase-btn {
-    background-color: #f0f0f0;
-    color: #333;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    font-size: 12px;
-    margin-right: 5px;
-    border-radius: 4px;
-}
-
-.edit-btn:hover {
-    background-color: #e7e7e7;
-}
-
-.look-btn:hover {
-    background-color: #e7e7e7;
-}
-
-.erase-btn:hover {
-    background-color: #e7e7e7;
-}

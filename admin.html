@@ -16,7 +16,7 @@
 
 <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-        <a class="navbar-brand ps-3" href="admin.html">Start Bootstrap</a>
+        <a class="navbar-brand ps-3" href="admin.html">Admin Page</a>
         <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
         <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
             <div class="input-group">
@@ -129,15 +129,15 @@
             <div class="dashboard-container">
                 <div class="chart-container">
                     <div class="chart-card">
-                        <h3>Persentasi Gaji Rata-Rata</h3>
+                        <h3>Rata-Rata Gaji</h3>
                         <canvas id="barChart"></canvas>
                     </div>
                     <div class="chart-card">
-                        <h3>Persentasi Pekerjaan Alumni</h3>
+                        <h3>Rata-Rata Pekerjaan Alumni</h3>
                         <canvas id="pieChart1"></canvas>
                     </div>
                     <div class="chart-card">
-                        <h3>Persentasi Pendidikan Lanjut Alumni</h3>
+                        <h3>Rata-Rata Pendidikan Lanjut Alumni</h3>
                         <canvas id="pieChart2"></canvas>
                     </div>
                 </div>
@@ -161,5 +161,65 @@
         <script src="js/scripts.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <script src="pie.js"></script>
+        <script>
+            async function fetchData() {
+                try {
+                    // Fetch data from the tablesadmin.html
+                    const response = await fetch('tablesadmin.html');
+                    const text = await response.text();
+                    
+                    // Create a DOM parser to parse the HTML
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(text, 'text/html');
+                    
+                    // Extract the data from the parsed HTML
+                    const rows = doc.querySelectorAll('table tbody tr');
+                    const data = Array.from(rows).map(row => {
+                        const columns = row.querySelectorAll('td');
+                        return {
+                            label: columns[0].textContent, // Adjust index based on table structure
+                            value: parseFloat(columns[1].textContent) // Adjust index based on table structure
+                        };
+                    }).sort((a, b) => a.value - b.value);
+        
+                    // Update the chart with sorted data
+                    updateChart(data);
+                } catch (error) {
+                    console.error('Error fetching or processing data:', error);
+                }
+            }
+        
+            function updateChart(data) {
+                const labels = data.map(item => item.label);
+                const values = data.map(item => item.value);
+        
+                // Update the bar chart data
+                const barChart = new Chart(document.getElementById('barChart'), {
+                    type: 'bar',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: 'Average Salary',
+                            data: values,
+                            backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                            borderColor: 'rgba(54, 162, 235, 1)',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+            }
+        
+            // Fetch and update chart data on page load
+            window.onload = fetchData;
+        </script>
+        
+        
     </body>
 </html>

@@ -91,6 +91,9 @@ nav ul li a:hover {
     background-color: rgba(255, 255, 255, 0);
 }
 
+
+
+
 /* Hero Section */
 .hero {
     display: flex;
@@ -120,6 +123,7 @@ nav ul li a:hover {
     font-weight: bold;
     color: #1d0a54; 
     margin-bottom: 20px;
+    text-align: center;
 }
 
 .hero-text p {
@@ -254,6 +258,31 @@ nav ul li a:hover {
 
 /* Add your existing CSS here */
 /* Tentang Section */
+/* Ensure the content-text within Tentang section is also centered */
+.tentang-content .content-text h2 {
+    text-align: center;
+}
+
+.menu-list a {
+    font-size: 20px; /* Adjust the size as needed */
+}
+
+.image-left {
+    height: 300px; /* Adjust height */
+    width: 200px; /* Adjust width if needed */
+}
+
+
+
+#tentang h2 {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #1d0a54;
+    text-align: center; /* Add this line to center align the h2 text */
+    margin-bottom: 20px;
+}
+
+
 #tentang {
     padding: 20px;
 }
