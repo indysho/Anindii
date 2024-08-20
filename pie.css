@@ -50,19 +50,61 @@ canvas {
 
 
 
-.container-fluid {
-    padding: 0; /* Remove padding if it's pushing content inward */
-}
 
-.card-body {
-    overflow-x: auto; /* Ensure the table doesn't overflow the container */
+.table-container {
+    width: 100%;
+    overflow-x: auto;
 }
 
 table {
-    width: 100%; /* Ensure the table takes up the full width of its container */
+    width: 100%;
+    border-collapse: collapse;
 }
 
-h1.mt-4 {
-    margin-top: 20px; /* Adjust the top margin to bring the title into view */
-    text-align: center; /* Optional: Center the title for better appearance */
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th[colspan="5"] {
+    text-align: right;
+    padding-right: 10px;
+}
+
+.tambah-data-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 4px;
+}
+
+.tambah-data-btn:hover {
+    background-color: #45a049;
+}
+
+.edit-btn, .look-btn, .erase-btn {
+    background-color: #f0f0f0;
+    color: #333;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 12px;
+    margin-right: 5px;
+    border-radius: 4px;
+}
+
+.edit-btn:hover {
+    background-color: #e7e7e7;
+}
+
+.look-btn:hover {
+    background-color: #e7e7e7;
+}
+
+.erase-btn:hover {
+    background-color: #e7e7e7;
 }

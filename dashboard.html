@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daftar Alumni</title>
     <link rel="stylesheet" href="daftar.css">
+    <link rel="stylesheet" href="pie.css">
     <link href="https://unpkg.com/tailwindcss@^2.2.0/dist/tailwind.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
@@ -47,99 +48,41 @@
             </div>
         </div>
 
-        <script>
-            // Main pie chart
-            const mainCtx = document.getElementById('main-pie-chart').getContext('2d');
-            const mainChart = new Chart(mainCtx, {
-                type: 'pie',
-                data: {
-                    labels: ['Alumni who have found work', 'Alumni still pursuing undergraduate degree'],
-                    datasets: [{
-                        label: 'Alumni Status',
-                        data: [60, 40], // adjust these values based on your data
-                        backgroundColor: [
-                            'rgba(255, 99, 132, 0.2)',
-                            'rgba(54, 162, 235, 0.2)'
-                        ],
-                        borderColor: [
-                            'rgba(255, 99, 132, 1)',
-                            'rgba(54, 162, 235, 1)'
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    title: {
-                        display: true,
-                        text: 'Alumni Status'
-                    }
-                }
-            });
 
-            // Job pie chart
-            const jobCtx = document.getElementById('job-pie-chart').getContext('2d');
-            const jobChart = new Chart(jobCtx, {
-                type: 'pie',
-                data: {
-                    labels: ['Software Engineer', 'Data Analyst', 'Marketing', 'Others'],
-                    datasets: [{
-                        label: 'Job Distribution',
-                        data: [30, 20, 15, 35], // adjust these values based on your data
-                        backgroundColor: [
-                            'rgba(255, 99, 132, 0.2)',
-                            'rgba(54, 162, 235, 0.2)',
-                            'rgba(255, 206, 86, 0.2)',
-                            'rgba(75, 192, 192, 0.2)'
-                        ],
-                        borderColor: [
-                            'rgba(255, 99, 132, 1)',
-                            'rgba(54, 162, 235, 1)',
-                            'rgba(255, 206, 86, 1)',
-                            'rgba(75, 192, 192, 1)'
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    title: {
-                        display: true,
-                        text: 'Job Distribution'
-                    }
-                }
-            });
 
-            // Study pie chart
-            const studyCtx = document.getElementById('study-pie-chart').getContext('2d');
-            const studyChart = new Chart(studyCtx, {
-                type: 'pie',
-                data: {
-                    labels: ['Computer Science', 'Business', 'Engineering', 'Others'],
-                    datasets: [{
-                        label: 'Study Distribution',
-                        data: [40, 25, 20, 15], // adjust these values based on your data
-                        backgroundColor: [
-                            'rgba(255, 99, 132, 0.2)',
-                            'rgba(54, 162, 235, 0.2)',
-                            'rgba(255, 206, 86, 0.2)',
-                            'rgba(75, 192, 192, 0.2)'
-                        ],
-                        borderColor: [
-                            'rgba(255, 99, 132, 1)',
-                            'rgba(54, 162, 235, 1)',
-                            'rgba(255, 206, 86, 1)',
-                            'rgba(75, 192, 192, 1)'
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    title: {
-                        display: true,
-                        text: 'Study Distribution'
-                    }
-                }
-            });
-        </script>
+
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <h1>DASHBOARD</h1>
+        <div class="chart-container">
+            <div class="chart-card">
+                <h3>Grafik Jumlah Warga Berdasarkan Klasifikasi</h3>
+                <canvas id="barChart"></canvas>
+            </div>
+            <div class="chart-card">
+                <h3>Grafik Data Dokumen Penduduk</h3>
+                <canvas id="pieChart1"></canvas>
+            </div>
+            <div class="chart-card">
+                <h3>Grafik Data Agama</h3>
+                <canvas id="pieChart2"></canvas>
+            </div>
+        </div>
+    </div>
+    
+
+
+
+
 
         <button onclick="goBack()" class="py-2 px-4 border border-gray-300 
 rounded text-gray-700 bg-white hover:bg-gray-200 mt-4">Go Back</button>
@@ -157,6 +100,8 @@ rounded text-gray-700 bg-white hover:bg-gray-200 mt-4">Go Back</button>
             sidebar.classList.toggle('inactive');
         });
     </script>
+
+<script src="pie.js"></script>
 </body>
 
 </html>
