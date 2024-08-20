@@ -6,12 +6,214 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Alumni</title>
     <link rel="stylesheet" href="login.css">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url("background_blue.jpg");
+            background-size: cover;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            padding-bottom: 75px;
+        }
+
+        .go-back-button {
+            position: fixed;
+            bottom: 20px;
+            left: 20px; 
+            padding: 8px 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: white;
+            color: #333;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .go-back-button:hover {
+            background-color: #f0f0f0;
+        }
+
+        header {
+            background-color: #09147ac7;
+            color: white;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        .site-title {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .date {
+            font-size: 14px;
+        }
+
+       
+
+        main {
+            flex: 1;
+            display: flex;
+            padding: 25px;
+            padding-left: 220px; 
+        }
+
+        .sidebar nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar nav ul li {
+            margin: 10px 0;
+        }
+
+        .sidebar nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .login-section {
+            flex: 1;
+            margin-right: 20px;
+        }
+
+        .login-section h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .login-form label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .login-form input[type="text"],
+        .login-form input[type="password"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .recaptcha {
+            display: flex;
+            align-items: center;
+        }
+
+        .recaptcha input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        .captcha-box {
+            margin-left: 10px;
+        }
+
+        .recaptcha img {
+            width: 50px;
+            height: auto;
+        }
+
+        .login-form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            border: none;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .login-form button:hover {
+            background-color: #0056b3;
+        }
+
+        .ad-banner {
+            margin-top: 20px;
+        }
+
+        .ad-banner img {
+            width: 50%;
+            height: auto;
+            align-items: center;
+        }
+
+        .info-section {
+            flex: 1;
+        }
+
+        .info-section h2 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .info-section .about,
+        .info-section .contact,
+        .info-section .notice {
+            margin-bottom: 20px;
+        }
+
+        .info-section .contact ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .info-section .contact ul li {
+            margin-bottom: 5px;
+        }
+
+        .info-section .contact ul li a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .info-section .contact ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .info-section .notice {
+            background-color: #f8d7da;
+            color: #721c24;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #f5c6cb;
+        }
+
+        /* Card styling for added sections */
+        .card {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .card h2 {
+            margin-top: 0;
+        }
+    </style>
 </head>
 
 <body>
-    <button onclick="goBack()" class="go-back-button">
-        Go Back
-    </button>
+    <button onclick="goBack()" class="go-back-button">Go Back</button>
 
     <div class="container">
         <header>
@@ -21,27 +223,23 @@
             </div>
             <div class="date">
                 <script type="text/javascript">
-                  document.write(new Date().toLocaleDateString('id-ID', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }));
+                    document.write(new Date().toLocaleDateString('id-ID', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }));
                 </script>
             </div>
         </header>
-        <div class="sidebar">
-            <nav>
-                <ul>
-                    <li><a href="#">Dashboard</a></li>
-                </ul>
-            </nav>
-        </div>
+
+        
+
         <main>
-            <section class="login-section">
+            <section class="login-section card">
                 <h1>Login Alumni</h1>
                 <form class="login-form" id="loginForm">
                     <label for="username">User Name</label>
                     <input type="text" id="username" placeholder="Enter NIM" required>
-                
+
                     <label for="password">Password</label>
                     <input type="password" id="password" placeholder="Tanggal Lahir : 2007-04-14" required>
-                
+
                     <div class="recaptcha">
                         <input type="checkbox" id="recaptcha" required>
                         <label for="recaptcha">I'm not a robot</label>
@@ -49,26 +247,24 @@
                             <img src="captcha.png" alt="Captcha">
                         </div>
                     </div>
-                
+
                     <button type="submit">Login Alumni</button>
                 </form>
-                
-                <!-- Elemen untuk menampilkan pesan kesalahan -->
-                <div id="errorMessage" style="color: red; margin-top: 10px;"></div>
-                
+
+                <div id="errorMessage" class="error-message"></div>
+
                 <div class="ad-banner">
                     <img src="info.jpg" alt="Ad Banner">
                 </div>
             </section>
+
             <section class="info-section">
-                <div class="about">
+                <div class="card about">
                     <h2>About</h2>
                     <p>TENTANG RUANG ALUMNI</p>
-                    <p>Ruang Alumni ditujukan bagi alumni Politeknik Negeri Fakfak seluruh 
-                        angkatan dalam rangka proses pendataan dan tracer studi alumni, 
-                        sehingga antara Polinef dan Alumni terjadi suatu komunikasi yang harmonis</p>
+                    <p>Ruang Alumni ditujukan bagi alumni Politeknik Negeri Fakfak seluruh angkatan dalam rangka proses pendataan dan tracer studi alumni, sehingga antara Polinef dan Alumni terjadi suatu komunikasi yang harmonis.</p>
                 </div>
-                <div class="contact">
+                <div class="card contact">
                     <h2>Kontak Kami</h2>
                     <ul>
                         <li>Phone : <a href="tel:0822-4862-0075">0822-4862-0075</a></li>
@@ -76,72 +272,42 @@
                         <li>Polinef Information Center : <a href="https://polinef.siakadcloud.com/spmbfront/home">https://polinef.siakadcloud.com</a></li>
                     </ul>
                 </div>
-                <div class="notice">
-                    <p>Untuk mengakses Ruang Alumni, silahkan LOGIN terlebih dahulu pada form yang telah disediakan, 
-                        gunakan NIM untuk username dan tanggal lahir (yyyy-mm-dd) untuk password pertama kali. 
-                        Setelah itu ubahlah password Anda sesuai dengan yang Anda kehendaki</p>
+                <div class="card notice">
+                    <p>Untuk mengakses Ruang Alumni, silahkan LOGIN terlebih dahulu pada form yang telah disediakan, gunakan NIM untuk username dan tanggal lahir (yyyy-mm-dd) untuk password pertama kali. Setelah itu ubahlah password Anda sesuai dengan yang Anda kehendaki.</p>
                 </div>
             </section>
         </main>
     </div>
-    
+
     <script>
         function goBack() {
             window.history.back();
         }
-    </script>
-    
-    
-    <script>
+
         const loginForm = document.querySelector('.login-form');
-const usernameInput = document.getElementById('username');
-const passwordInput = document.getElementById('password');
+        const usernameInput = document.getElementById('username');
+        const passwordInput = document.getElementById('password');
 
-loginForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const username = usernameInput.value;
-    const password = passwordInput.value;
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const username = usernameInput.value;
+            const password = passwordInput.value;
 
-    if ((username === 'AdminIndy' && password === 'IndyZee') ||
-        (username === 'AdminItha' && password === 'RostaRmbia') ||
-        (username === 'AdminAftia' && password === 'EndangAftia')) {
-        window.location.href = 'admin.html';
-
-    } else if (username !== '' && isValidNIM(username)) {
-            window.location.href = 'landing-stlhlogin.html';
-        } else {
-            showError('Username atau password salah');
-        }
-    });
-
-    function isValidNIM(username) {
-        // Add validation logic for NIM here, e.g., checking the format
-        return true; // Placeholder, assumes NIM is always valid
-    }
-
-    function showError(message) {
-        let errorDiv = document.querySelector('.error-message');
-        if (!errorDiv) {
-            errorDiv = document.createElement('div');
-            errorDiv.className = 'error-message';
-            loginForm.appendChild(errorDiv);
-        }
-        errorDiv.textContent = message;
-    }
-
-    function clearError() {
-        const errorDiv = document.querySelector('.error-message');
-        if (errorDiv) {
-            errorDiv.remove();
-        }
-    }
-
-
-
-    
+            if ((username === 'AdminIndy' && password === 'IndyZee') ||
+                (username === 'AdminItha' && password === 'RostaRmbia') ||
+                (username === 'AdminAftia' && password === 'EndangAftia')) {
+                window.location.href = 'admin.html';
+            } else if (username === 'admin' && password === 'admin') {
+                window.location.href = 'admin.html';
+            } else if (username === 'alumni' && password === 'alumni') {
+                window.location.href = 'alumni.html';
+            } else {
+                const errorMessage = document.getElementById('errorMessage');
+                errorMessage.textContent = 'Invalid username or password. Please try again.';
+                errorMessage.style.color = 'red';
+            }
+        });
     </script>
-    
-
 </body>
 
 </html>
