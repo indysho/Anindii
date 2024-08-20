@@ -17,6 +17,11 @@ html {
 }
 
 
+
+
+
+
+
 /* Body styling */
 body {
     font-family: 'Trebuchet MS', sans-serif; /* Add a fallback font */
@@ -197,6 +202,7 @@ nav ul li a:hover {
 
 .content-box {
     flex: 1;
+    text-align: center;
     padding: 30px; 
     background-color: rgba(255, 255, 255, 0);
     border-radius: 50px 20px 50px 20px;
@@ -283,6 +289,7 @@ nav ul li a:hover {
 }
 
 
+
 #tentang {
     padding: 20px;
 }
@@ -359,7 +366,11 @@ nav ul li a:hover {
 
 /* Add your existing CSS here */
 #lowongan h2 {
-    text-align: center; /* Centers the text */
+    font-size: 2.5em; /* Adjust the size as needed */
+    font-weight: bold;
+    color: #1d0a54; /* Adjust color if needed */
+    text-align: center; /* Center-align the text */
+    margin-bottom: 20px; /* Adjust margin if needed */
 }
 
 .job-listings {
@@ -399,16 +410,16 @@ nav ul li a:hover {
 }
 
 .see-more-link {
-    display: block;
-    text-align: right;
-    margin-top: 20px;
-    font-weight: bold;
-    color: #0056b3;
-    text-decoration: none;
+    font-size: 1.2em; /* Adjust the size as needed */
+    font-weight: bold; /* Make the text bold */
+    color: #0056b3; /* Adjust color if needed */
+    text-decoration: none; /* Remove underline */
+    display: inline-block; /* Ensure the link is inline-block */
+    margin-top: 20px; /* Adjust margin if needed */
 }
 
 .see-more-link:hover {
-    text-decoration: underline;
+    text-decoration: underline; /* Add underline on hover */
 }
 
 
@@ -456,6 +467,15 @@ nav ul li a:hover {
 .post-card p {
     font-size: 14px;
     color: #666;
+}
+
+
+#berita h2 {
+    font-size: 2.5em; /* Adjust the size as needed */
+    font-weight: bold;
+    color: #1d0a54; /* Adjust color if needed */
+    text-align: center; /* Center-align the text */
+    margin-bottom: 20px; /* Adjust margin if needed */
 }
 
 .see-more-link {
@@ -509,3 +529,8 @@ footer {
         font-size: 2em;
     }
 }
+
+
+
+
+
