@@ -24,7 +24,7 @@ const ctx2 = document.getElementById('pieChart1').getContext('2d');
 const pieChart1 = new Chart(ctx2, {
     type: 'pie',
     data: {
-        labels: ['KTP', 'KK', 'IJAZAH', 'SKCK'],
+        labels: ['Pegawai Bank', 'Staff Kantoran', 'Arsitek', 'Programmer'],
         datasets: [{
             label: 'Dokumen',
             data: [25, 30, 20, 25],
