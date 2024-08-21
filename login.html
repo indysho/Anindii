@@ -189,6 +189,31 @@
             padding: 15px;
             margin-bottom: 20px;
         }
+
+
+        .tab-menu {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        .tablink {
+            background-color: #ddd;
+            color: black;
+            padding: 10px 20px;
+            cursor: pointer;
+            border: none;
+            transition: background-color 0.3s;
+            margin-right: 5px;
+        }
+        .tablink:hover {
+            background-color: #bbb;
+        }
+        .tablink.active {
+            background-color: #aaa;
+            color: white;
+        }
+        .tabcontent {
+            display: none;
+        }
     </style>
 </head>
 
@@ -271,6 +296,7 @@
                             Setelah itu ubahlah password Anda sesuai dengan yang Anda kehendaki.</p>
                     </section>
                 </div>
+                
 
                 <!-- Daftar Alumni Section -->
                 <div class="table-wrapper">
@@ -490,6 +516,34 @@
         function goBack() {
             window.history.back();
         }
+
+
+        const loginForm = document.querySelector('.login-form');
+    const usernameInput = document.getElementById('username');
+    const passwordInput = document.getElementById('password');
+    
+    
+    loginForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const username = usernameInput.value;
+    const password = passwordInput.value;
+
+    if ((username === 'AdminIndy' && password === 'IndyZee') ||
+        (username === 'AdminItha' && password === 'RostaRmbia') ||
+        (username === 'AdminAftia' && password === 'EndangAftia')) {
+        window.location.href = 'admin.html';
+
+    } else if (username !== '' && isValidNIM(username)) {
+            window.location.href = 'index_stlhlogin.html';
+        } else {
+            showError('Username atau password salah');
+        }
+    });
+
+    function isValidNIM(username) {
+        // Add validation logic for NIM here, e.g., checking the format
+        return true; // Placeholder, assumes NIM is always valid
+    }
     
         // Tab switching function
         function openTab(evt, tabName) {
