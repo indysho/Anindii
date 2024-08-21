@@ -90,7 +90,7 @@
                                 </a>
                             </nav>
                         </div>
-
+                        
                         <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
                                 <a class="nav-link" href="persenpekerjaan.html">
@@ -198,76 +198,77 @@
                             </div>
                         </div>
                     </div>
-                    </main>
-                    </div>
-                    </div>
-                    
-                    <!-- Scripts -->
-                    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"></script>
-                    <script src="js/chart.min.js"></script>
-                    <script>
-                        document.addEventListener('DOMContentLoaded', function () {
-                            const sidebarToggle = document.getElementById('sidebarToggle');
-                            if (sidebarToggle) {
-                                sidebarToggle.addEventListener('click', function (event) {
-                                    event.preventDefault();
-                                    document.body.classList.toggle('sb-sidenav-toggled');
-                                });
-                            }
-                            
-                            // Example charts
-                            const ctx1 = document.getElementById('salaryChart').getContext('2d');
-                            new Chart(ctx1, {
-                                type: 'bar',
-                                data: {
-                                    labels: ['January', 'February', 'March', 'April', 'May'],
-                                    datasets: [{
-                                        label: 'Salary',
-                                        data: [1200, 1500, 1700, 2000, 2200],
-                                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                                        borderColor: 'rgba(75, 192, 192, 1)',
-                                        borderWidth: 1
-                                    }]
-                                },
-                                options: {
-                                    scales: {
-                                        y: {
-                                            beginAtZero: true
-                                        }
-                                    }
-                                }
-                            });
-                    
-                            const ctx2 = document.getElementById('jobChart').getContext('2d');
-                            new Chart(ctx2, {
-                                type: 'pie',
-                                data: {
-                                    labels: ['Job A', 'Job B', 'Job C', 'Job D'],
-                                    datasets: [{
-                                        label: 'Job Distribution',
-                                        data: [30, 25, 20, 25],
-                                        backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#FF9F40']
-                                    }]
-                                }
-                            });
-                    
-                            const ctx3 = document.getElementById('educationChart').getContext('2d');
-                            new Chart(ctx3, {
-                                type: 'line',
-                                data: {
-                                    labels: ['2020', '2021', '2022', '2023'],
-                                    datasets: [{
-                                        label: 'Education Level',
-                                        data: [3, 5, 7, 6],
-                                        borderColor: 'rgba(153, 102, 255, 1)',
-                                        backgroundColor: 'rgba(153, 102, 255, 0.2)',
-                                        fill: true
-                                    }]
-                                }
-                            });
-                        });
-                    </script>
-                    </body>
-                    
-                    </html>
-                    
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"></script>
+    
+    <script src="js/chart.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const sidebarToggle = document.getElementById('sidebarToggle');
+            if (sidebarToggle) {
+                sidebarToggle.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    document.body.classList.toggle('sb-sidenav-toggled');
+                });
+            }
+            
+            // Example charts
+            const ctx1 = document.getElementById('salaryChart').getContext('2d');
+            new Chart(ctx1, {
+                type: 'bar',
+                data: {
+                    labels: ['January', 'February', 'March', 'April', 'May'],
+                    datasets: [{
+                        label: 'Salary',
+                        data: [1200, 1500, 1700, 2000, 2200],
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+
+            const ctx2 = document.getElementById('jobChart').getContext('2d');
+            new Chart(ctx2, {
+                type: 'pie',
+                data: {
+                    labels: ['Job A', 'Job B', 'Job C', 'Job D'],
+                    datasets: [{
+                        label: 'Job Distribution',
+                        data: [30, 25, 20, 25],
+                        backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#FF9F40']
+                    }]
+                }
+            });
+
+            const ctx3 = document.getElementById('educationChart').getContext('2d');
+            new Chart(ctx3, {
+                type: 'line',
+                data: {
+                    labels: ['2020', '2021', '2022', '2023'],
+                    datasets: [{
+                        label: 'Education Level',
+                        data: [3, 5, 7, 6],
+                        borderColor: 'rgba(153, 102, 255, 1)',
+                        backgroundColor: 'rgba(153, 102, 255, 0.2)',
+                        fill: true
+                    }]
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
