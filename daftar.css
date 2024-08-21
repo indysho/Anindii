@@ -1,75 +1,48 @@
 body {
     font-family: Arial, sans-serif;
-}
-
-.go-back-button {
-    top: 10px; 
-    left: 15px; 
+    margin: 0;
+    padding: 0;
     display: flex;
-    align-items: left;
-    padding: 4px 16px;
-    border: 0px transparent #ccc;
-    border-radius: 4px;
-    background-color: white;
-    color: #33333300;
-    cursor: pointer;
-    position: absolute;
-}
-
-.go-back-button:hover {
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
     background-color: #f0f0f0;
 }
 
-.go-back-button svg {
-    margin-right: 8px;
-}
-
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 16px;
-}
-
-.controls {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
+/* Sidebar styles */
 .sidebar {
     position: fixed;
-    Top: 0;
+    top: 0;
     left: 0;
-    width: 200px;
-    height: 100vh;
-    background-color: #08179c;
+    height: 100%;
+    width: 250px;
+    background-color: #2734acd6;
     color: #fff;
-    padding: 20px;
-    transition: left 0.5s;
+    transition: transform 0.3s ease;
+    transform: translateX(-100%);
 }
 
 .sidebar.active {
-    left: 0;
-}
-
-.sidebar.inactive {
-    left: -200px;
+    transform: translateX(0);
 }
 
 .sidebar ul {
-    list-style: none;
+    list-style-type: none;
     padding: 0;
-    margin: 0;
 }
 
 .sidebar ul li {
-    margin-bottom: 10px;
+    padding: 10px;
 }
 
 .sidebar ul li a {
     color: #fff;
     text-decoration: none;
+    display: block;
+}
+
+.sidebar ul li a:hover {
+    background-color: #ffffff39;
 }
 
 .toggle-button {
@@ -85,35 +58,66 @@ body {
     z-index: 1001;
 }
 
-
-
-/* Add margin above the pagination controls */
-.dataTables_wrapper .dataTables_paginate {
-    margin-top: 20px; /* Adjust this value to increase/decrease spacing */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 220px; /* Adjust margin to make space for sidebar */
+    padding: 20px;
 }
 
-/* Default pagination button styling */
-.dataTables_wrapper .dataTables_paginate .paginate_button {
-    color: #2f6df4 !important;
-    background-color: #f7fafc !important;
-    border: 1px solid #cbd5e0 !important;
-    padding: 5px 10px;
-    margin: 2px;
-    border-radius: 4px;
+.search-bar {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
 }
 
-/* Active pagination button styling */
-.dataTables_wrapper .dataTables_paginate .paginate_button.current {
-    color: #fff !important;
-    background-color: #2f6df4 !important;
-    border-color: #2f6df4 !important;
+.search-bar input, .search-bar select {
+    padding: 10px;
+    width: 300px;
+    text-align: center;
 }
 
-/* Hover effect for pagination buttons */
-.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
-    color: #fff !important;
-    background-color: #9db5e7 !important;
-    border-color: #819dd9 !important;
+.search-bar select {
+    width: 320px; /* Slightly wider for dropdown */
 }
 
+.table-container {
+    width: 100%;
+    max-width: 800px;
+}
 
+#dataTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#dataTable th, #dataTable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+#dataTable th {
+    background-color: #f2f2f2;
+}
+
+.pagination {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.pagination button {
+    padding: 10px 20px;
+    margin: 0 5px;
+    border: 1px solid #ddd;
+    background-color: #f0f0f0;
+    cursor: pointer;
+}
+
+.pagination button:disabled {
+    background-color: #ddd;
+    cursor: not-allowed;
+}

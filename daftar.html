@@ -1,339 +1,260 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daftar Alumni</title>
-    <link rel="stylesheet" href="daftar.css">
-    <link href="https://unpkg.com/tailwindcss@^2.2.0/dist/tailwind.min.css" rel="stylesheet">
-    <!-- DataTables CSS -->
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
-    
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toggle Sidebar</title>
+  <link rel="stylesheet" href="daftar.css">
 </head>
-
 <body>
-    <button class="toggle-button" id="toggle-button">&#9776;</button>
+  <button class="toggle-button" id="toggleButton">☰</button>
 
-    <div class="sidebar inactive" id="sidebar">
-        <!-- Sidebar Content Here -->
-        <ul style="list-style: none; padding: 0;">
-            <br><br><br>
-            <li style="display: flex; align-items: center; margin-bottom: 10px;">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-mortarboard-fill" viewBox="0 0 16 16" style="margin-right: 8px;">
-                    <path d="M8.211 2.047a.5.5 0 0 0-.422 0l-7.5 3.5a.5.5 0 0 0 .025.917l7.5 3a.5.5 0 0 0 .372 0L14 7.14V13a1 1 0 0 0-1 1v2h3v-2a1 1 0 0 0-1-1V6.739l.686-.275a.5.5 0 0 0 .025-.917z"/>
-                    <path d="M4.176 9.032a.5.5 0 0 0-.656.327l-.5 1.7a.5.5 0 0 0 .294.605l4.5 1.8a.5.5 0 0 0 .372 0l4.5-1.8a.5.5 0 0 0 .294-.605l-.5-1.7a.5.5 0 0 0-.656-.327L8 10.466z"/>
-                </svg>
-                <a href="daftar.html">Alumni List</a>
-            </li>
-            <li style="display: flex; align-items: center; margin-bottom: 10px;">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pie-chart-fill" viewBox="0 0 16 16" style="margin-right: 8px;">
-                    <path d="M15.985 8.5H8.207l-5.5 5.5a8 8 0 0 0 13.277-5.5zM2 13.292A8 8 0 0 1 7.5.015v7.778zM8.5.015V7.5h7.485A8 8 0 0 0 8.5.015"/>
-                </svg>
-                <a href="dashboard.html">Dashboard</a>
-            </li>
-            
-            <li style="display: flex; align-items: center;">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-calendar4-week" viewBox="0 0 16 16" style="margin-right: 8px;">
-                    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M2 2a1 1 0 0 0-1 1v1h14V3a1 1 0 0 0-1-1zm13 3H1v9a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1z"/>
-                    <path d="M11 7.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm-3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm-2 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm-3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z"/>
-                </svg>
-                <a href="agenda.html">Agenda Kegiatan Alumni</a>
-            </li>
-        </ul>
+  <div class="sidebar inactive" id="sidebar">
+    <ul>
+      <br><br><br>
+      <li><a href="daftar.html">Alumni List</a></li>
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="index.html" id="goBackLink">Go Back</a></li>
+    </ul>
+  </div>
+
+  <div class="container">
+    <div class="search-bar">
+      <select id="jurusanSelect">
+        <option value="">Pilih Jurusan</option>
+        <option value="IT">Manajemen Informatika</option>
+        <option value="Business">Teknik Mesin</option>
+        <option value="Engineering">Teknik Listrik</option>
+        <option value="Business">Teknik Sipil</option>
+        <option value="Engineering">Agroindustri</option>
+        <!-- Add more options as needed -->
+      </select>
+      <input type="text" id="nimInput" placeholder="NIM">
+      <input type="text" id="namaInput" placeholder="Nama">
     </div>
-
-    <div class="container mx-auto p-4 pl-12">
-        <h1 class="text-2xl font-bold mb-4">Daftar Alumni</h1>
-        <div class="flex items-center justify-between mb-4">
-            <div class="flex items-center space-x-2">
-                <label for="recordsPerPage" class="text-sm">Records per page</label>
-                <select id="recordsPerPage" class="border border-gray-300 rounded p-2">
-                    <option value="10">10</option>
-                    <option value="15">15</option>
-                    <option value="25">25</option>
-                    <option value="50">50</option>
-                    <option value="100">100</option>
-                </select>
-            </div>
-            <div class="relative">
-                <input type="text" id="searchInput" class="border border-gray-300 rounded p-2 pl-10" placeholder="Search...">
-                <span class="absolute inset-y-0 left-0 flex items-center pl-3">
-                    <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M12.9 14.32a8 8 0 111.414-1.414l4.242 4.242a1 1 0 01-1.414 1.414l-4.242-4.242zm-6.4-4.92a6 6 0 1012 0 6 6 0 00-12 0z" clip-rule="evenodd" />
-                    </svg>
-                </span>
-            </div>
-        </div>
-        <div class="table-container">
-            <table id="alumniTable" class="min-w-full bg-white border border-gray-300">
-                <thead>
-                    <tr class="bg-blue-600 text-white text-left">
-                        <th class="py-2 px-4 border-b">NIM</th>
-                        <th class="py-2 px-4 border-b">Nama</th>
-                        <th class="py-2 px-4 border-b">Jurusan</th>
-                        <th class="py-2 px-4 border-b">Thn Lulus</th>
-                    </tr>
-                </thead>
-                <tbody id="alumniTableBody">
-                    <tr>
-                        <td class="py-2 px-4 border-b">16320066</td>
-                        <td class="py-2 px-4 border-b"><a href="levi.html" 
-                            class="text-black-500">Levi Ackerman</a></td>
-                        <td class="py-2 px-4 border-b">Teknik Mesin</td>
-                        <td class="py-2 px-4 border-b">2023</td>
-                    </tr>
-                    <tr>
-                        <td class="py-2 px-4 border-b">16323046</td>
-                        <td class="py-2 px-4 border-b"><a href="Anisa.html" 
-                            class="text-black-500">Anisa Putri Utami</a></td>
-                        <td class="py-2 px-4 border-b">Manajemen Informatika</td>
-                        <td class="py-2 px-4 border-b">2023</td>
-                    </tr>
-                    <tr>
-                        <td class="py-2 px-4 border-b">16320120</td>
-                        <td class="py-2 px-4 border-b"><a href="freya.html" 
-                            class="text-black-500">Freya Alhamdulillah</a></td>
-                        <td class="py-2 px-4 border-b">Agroindustri</td>
-                        <td class="py-2 px-4 border-b">2023</td>
-                    </tr>
-                    <tr>
-                        <td class="py-2 px-4 border-b">16321170</td>
-                        <td class="py-2 px-4 border-b"><a href="zeejkt.html" 
-                            class="text-black-500">Zee Jekatedimana</a></td>
-                        <td class="py-2 px-4 border-b">Rekayasa Jalan dan Jembatan</td>
-                        <td class="py-2 px-4 border-b">2024</td>
-                    </tr>
-                    <tr>
-                        <td class="py-2 px-4 border-b">16320035</td>
-                        <td class="py-2 px-4 border-b"><a href="rafael.html" 
-                            class="text-black-500">Rafael Struick</a></td>
-                        <td class="py-2 px-4 border-b">Manajemen Informatika</td>
-                        <td class="py-2 px-4 border-b">2023</td>
-                    </tr>
-                    <tr>
-                        <td class="py-2 px-4 border-b">16320040</td>
-                        <td class="py-2 px-4 border-b"><a href="tom.html" 
-                            class="text-black-500">Tom A. Holland</a></td>
-                        <td class="py-2 px-4 border-b">Teknik Listrik</td>
-                        <td class="py-2 px-4 border-b">2023</td>
-                    </tr>
-                    <tr>
-                        <td class="py-2 px-4 border-b">16320041</td>
-                        <td class="py-2 px-4 border-b"><a href="anindi.html" 
-                            class="text-black-500">Anindi Maulani Mustofa</a></td>
-                        <td class="py-2 px-4 border-b">Manajemen Informatika</td>
-                        <td class="py-2 px-4 border-b">2023</td>
-                    </tr>
-                    <tr>
-                        <td class="py-2 px-4 border-b">16320042</td>
-                        <td class="py-2 px-4 border-b"><a href="rosita.html" 
-                            class="text-black-500">Rosita</a></td>
-                        <td class="py-2 px-4 border-b">Manajemen Informatika</td>
-                        <td class="py-2 px-4 border-b">2023</td>
-                    </tr>
-                    <tr>
-                        <td class="py-2 px-4 border-b">16320043</td>
-                        <td class="py-2 px-4 border-b"><a href="endang.html" 
-                            class="text-black-500">Endang Aftia</a></td>
-                        <td class="py-2 px-4 border-b">Manajemen Informatika</td>
-                        <td class="py-2 px-4 border-b">2023</td>
-                    </tr>
-                    <tr>
-                        <td class="py-2 px-4 border-b">16320045</td>
-                        <td class="py-2 px-4 border-b"><a href="albar.html" 
-                            class="text-black-500">Albar Palahidu</a></td>
-                        <td class="py-2 px-4 border-b">Manajemen Informatika</td>
-                        <td class="py-2 px-4 border-b">2023</td>
-                    </tr>
-                    <tr>
-                        <td class="py-2 px-4 border-b">16321044</td>
-                        <td class="py-2 px-4 border-b"><a href="miguel.html" 
-                            class="text-black-500">Miguel Diaz</a></td>
-                        <td class="py-2 px-4 border-b">Manajemen Informatika</td>
-                        <td class="py-2 px-4 border-b">2024</td>
-                    </tr>
-                    <tr>
-                        <td class="py-2 px-4 border-b">16320066</td>
-                        <td class="py-2 px-4 border-b"><a href="alber.html" 
-                            class="text-black-500">Albertus Giorgino</a></td>
-                        <td class="py-2 px-4 border-b">Teknik Mesin</td>
-                        <td class="py-2 px-4 border-b">2023</td>
-                    </tr>
-                    <tr>
-                        <td class="py-2 px-4 border-b">17823456</td>
-                        <td class="py-2 px-4 border-b"><a href="afita.html" 
-                            class="text-black-500">Afita Putri</a></td>
-                        <td class="py-2 px-4 border-b">Teknik Sipil</td>
-                        <td class="py-2 px-4 border-b">2020</td>
-                    </tr>
-                    <tr>
-                        <td class="py-2 px-4 border-b">16324562</td>
-                        <td class="py-2 px-4 border-b"><a href="abas.html" 
-                            class="text-black-500">Abastian Aliandro Kamandaka</a></td>
-                        <td class="py-2 px-4 border-b">Teknik Sipil</td>
-                        <td class="py-2 px-4 border-b">2023</td>
-                    </tr>
-                    <tr>
-                        <td class="py-2 px-4 border-b">16545809</td>
-                        <td class="py-2 px-4 border-b"><a href="andre.html" 
-                            class="text-black-500">Andreas Reyliando</a></td>
-                        <td class="py-2 px-4 border-b">Manajemen Informatika</td>
-                        <td class="py-2 px-4 border-b">2022</td>
-                    </tr>
-                    <tr>
-                        <td class="py-2 px-4 border-b">16323089</td>
-                        <td class="py-2 px-4 border-b"><a href="arfa.html" 
-                            class="text-black-500">Arfaksyad Gani</a></td>
-                        <td class="py-2 px-4 border-b">Teknik Listrik</td>
-                        <td class="py-2 px-4 border-b">2023</td>
-                    </tr>
-                    <tr>
-                        <td class="py-2 px-4 border-b">18182373</td>
-                        <td class="py-2 px-4 border-b"><a href="delita.html" 
-                            class="text-black-500">Delila Natalia</a></td>
-                        <td class="py-2 px-4 border-b">Teknik Listrik</td>
-                        <td class="py-2 px-4 border-b">2023</td>
-                    </tr>
-                    <tr>
-                        <td class="py-2 px-4 border-b">15223451</td>
-                        <td class="py-2 px-4 border-b"><a href="dian.html" 
-                            class="text-black-500">Diana Pratama</a></td>
-                        <td class="py-2 px-4 border-b">Manajemen Informatika</td>
-                        <td class="py-2 px-4 border-b">2023</td>
-                    </tr>
-                    <tr>
-                        <td class="py-2 px-4 border-b">15223452</td>
-                        <td class="py-2 px-4 border-b"><a href="dianpratama.html" 
-                            class="text-black-500">Daina Pratama</a></td>
-                        <td class="py-2 px-4 border-b">Manajemen Informatika</td>
-                        <td class="py-2 px-4 border-b">2023</td>
-                    </tr>
-                    <tr>
-                        <td class="py-2 px-4 border-b">124465787</td>
-                        <td class="py-2 px-4 border-b"><a href="giovani.html" 
-                            class="text-black-500">Alvaro Giovani</a></td>
-                        <td class="py-2 px-4 border-b">Agroindustri</td>
-                        <td class="py-2 px-4 border-b">2023</td>
-                    </tr>
-                    <tr>
-                        <td class="py-2 px-4 border-b">16323038</td>
-                        <td class="py-2 px-4 border-b"><a href="masita.html" 
-                            class="text-black-500">Masita Gani</a></td>
-                        <td class="py-2 px-4 border-b">Manajemen Informatika</td>
-                        <td class="py-2 px-4 border-b">2023</td>
-                    </tr>
-                    <tr>
-                        <td class="py-2 px-4 border-b">14578020</td>
-                        <td class="py-2 px-4 border-b"><a href="ramli.html" 
-                            class="text-black-500">Ramli Keliolan</a></td>
-                        <td class="py-2 px-4 border-b">Teknik Listrik</td>
-                        <td class="py-2 px-4 border-b">2023</td>
-                    </tr>
-                    <tr>
-                        <td class="py-2 px-4 border-b">16323090</td>
-                        <td class="py-2 px-4 border-b"><a href="rena.html" 
-                            class="text-black-500">Renata Adilisyah</a></td>
-                        <td class="py-2 px-4 border-b">Manajemen Informatika</td>
-                        <td class="py-2 px-4 border-b">2021</td>
-                    </tr>
-                    <tr>
-                        <td class="py-2 px-4 border-b">14578028</td>
-                        <td class="py-2 px-4 border-b"><a href="riana.html" 
-                            class="text-black-500">Riana Ramadani Siahaan</a></td>
-                        <td class="py-2 px-4 border-b">Manajemen Informatika</td>
-                        <td class="py-2 px-4 border-b">2021</td>
-                    </tr>
-                    <tr>
-                        <td class="py-2 px-4 border-b">17890513</td>
-                        <td class="py-2 px-4 border-b"><a href="renita.html" 
-                            class="text-black-500">Renita Natasya</a></td>
-                        <td class="py-2 px-4 border-b">Rekayasa Jalan dan Jembatan</td>
-                        <td class="py-2 px-4 border-b">2015</td>
-                    </tr>
-                    <tr>
-                        <td class="py-2 px-4 border-b">13404231</td>
-                        <td class="py-2 px-4 border-b"><a href="ridwan.html" 
-                            class="text-black-500">Ridwan Tanggahma</a></td>
-                        <td class="py-2 px-4 border-b">Teknik Mesin</td>
-                        <td class="py-2 px-4 border-b">2023</td>
-                    </tr>
-                    <tr>
-                        <td class="py-2 px-4 border-b">12572739</td>
-                        <td class="py-2 px-4 border-b"><a href="rifal.html" 
-                            class="text-black-500">Rifaldo Alansyah Putra</a></td>
-                        <td class="py-2 px-4 border-b">Teknik Mesin</td>
-                        <td class="py-2 px-4 border-b">2022</td>
-                    </tr>
-                    <tr>
-                        <td class="py-2 px-4 border-b">163238959</td>
-                        <td class="py-2 px-4 border-b"><a href="sarvia.html" 
-                            class="text-black-500">Sarvia Gani</a></td>
-                        <td class="py-2 px-4 border-b">Manajemen Informatika</td>
-                        <td class="py-2 px-4 border-b">2018</td>
-                    </tr>
-                    <tr>
-                        <td class="py-2 px-4 border-b">163230465</td>
-                        <td class="py-2 px-4 border-b"><a href="putri.html" 
-                            class="text-black-500">Putriyani Florensia</a></td>
-                        <td class="py-2 px-4 border-b">Agroindustri</td>
-                        <td class="py-2 px-4 border-b">2022</td>
-                    </tr>
-                    <tr>
-                        <td class="py-2 px-4 border-b">11011246</td>
-                        <td class="py-2 px-4 border-b"><a href="wanda.html" 
-                            class="text-black-500">Wanda Kibas</a></td>
-                        <td class="py-2 px-4 border-b">Manajemen Informatika</td>
-                        <td class="py-2 px-4 border-b">2023</td>
-                    </tr>
-                    <tr>
-                        <td class="py-2 px-4 border-b">1632047</td>
-                        <td class="py-2 px-4 border-b"><a href="yayan.html" 
-                            class="text-black-500">Yayan Sihombing </a></td>
-                        <td class="py-2 px-4 border-b">Manajemen Informatika</td>
-                        <td class="py-2 px-4 border-b">2012</td>
-                    </tr>
-                    
-
-
-
-                    
-                </tbody>
-            </table>
-        </div>
-        <button onclick="goBack()" class="py-2 px-4 border border-gray-300 rounded text-gray-700 bg-white hover:bg-gray-200 mt-4">Go Back</button>
+    
+    <div class="table-container">
+      <table id="dataTable">
+        <thead>
+          <tr>
+            <th>NIM</th>
+            <th>Nama</th>
+            <th>Jurusan</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="py-2 px-4 border-b">16320066</td>
+                <td class="py-2 px-4 border-b">Levi Ackerman</td>
+                <td class="py-2 px-4 border-b">Teknik Mesin</td>
+                <td class="py-2 px-4 border-b">2023</td>
+                
+            </tr>
+            <tr>
+                <td class="py-2 px-4 border-b">16323046</td>
+                <td class="py-2 px-4 border-b">Anisa Putri Utami</td>
+                <td class="py-2 px-4 border-b">Manajemen Informatika</td>
+                <td class="py-2 px-4 border-b">2023</td>
+            </tr>
+            <tr>
+                <td class="py-2 px-4 border-b">16320120</td>
+                <td class="py-2 px-4 border-b">Freya Alhamdulillah</td>
+                <td class="py-2 px-4 border-b">Agroindustri</td>
+                <td class="py-2 px-4 border-b">2023</td>
+            </tr>
+            <tr>
+                <td class="py-2 px-4 border-b">16321170</td>
+                <td class="py-2 px-4 border-b">Zee Jekatedimana</td>
+                <td class="py-2 px-4 border-b">Rekayasa Jalan dan Jembatan</td>
+                <td class="py-2 px-4 border-b">2024</td>
+            </tr>
+            <tr>
+                <td class="py-2 px-4 border-b">16320035</td>
+                <td class="py-2 px-4 border-b">Rafael Struick</td>
+                <td class="py-2 px-4 border-b">Manajemen Informatika</td>
+                <td class="py-2 px-4 border-b">2023</td>
+            </tr>
+            <tr>
+                <td class="py-2 px-4 border-b">16320040</td>
+                <td class="py-2 px-4 border-b">Tom A. Holland</td>
+                <td class="py-2 px-4 border-b">Teknik Listrik</td>
+                <td class="py-2 px-4 border-b">2023</td>
+            </tr>
+            <tr>
+                <td class="py-2 px-4 border-b">16320041</td>
+                <td class="py-2 px-4 border-b">Anindi Maulani Mustofa</td>
+                <td class="py-2 px-4 border-b">Manajemen Informatika</td>
+                <td class="py-2 px-4 border-b">2023</td>
+            </tr>
+            <tr>
+                <td class="py-2 px-4 border-b">16320042</td>
+                <td class="py-2 px-4 border-b">Rosita</td>
+                <td class="py-2 px-4 border-b">Manajemen Informatika</td>
+                <td class="py-2 px-4 border-b">2023</td>
+            </tr>
+            <tr>
+                <td class="py-2 px-4 border-b">16320043</td>
+                <td class="py-2 px-4 border-b">Endang Aftia</td>
+                <td class="py-2 px-4 border-b">Manajemen Informatika</td>
+                <td class="py-2 px-4 border-b">2023</td>
+            </tr>
+            <tr>
+                <td class="py-2 px-4 border-b">16320045</td>
+                <td class="py-2 px-4 border-b">Albar Palahidu</td>
+                <td class="py-2 px-4 border-b">Manajemen Informatika</td>
+                <td class="py-2 px-4 border-b">2023</td>
+            </tr>
+            <tr>
+                <td class="py-2 px-4 border-b">16321044</td>
+                <td class="py-2 px-4 border-b">Miguel Diaz</td>
+                <td class="py-2 px-4 border-b">Manajemen Informatika</td>
+                <td class="py-2 px-4 border-b">2024</td>
+            </tr>
+            <tr>
+                <td class="py-2 px-4 border-b">16320066</td>
+                <td class="py-2 px-4 border-b">Albertus Giorgino</td>
+                <td class="py-2 px-4 border-b">Teknik Mesin</td>
+                <td class="py-2 px-4 border-b">2023</td>
+            </tr>
+            <tr>
+                <td class="py-2 px-4 border-b">17823456</td>
+                <td class="py-2 px-4 border-b">Afita Putri</td>
+                <td class="py-2 px-4 border-b">Teknik Sipil</td>
+                <td class="py-2 px-4 border-b">2020</td>
+            </tr>
+            <tr>
+                <td class="py-2 px-4 border-b">16324562</td>
+                <td class="py-2 px-4 border-b">Abastian Aliandro Kamandaka</td>
+                <td class="py-2 px-4 border-b">Teknik Sipil</td>
+                <td class="py-2 px-4 border-b">2023</td>
+            </tr>
+            <tr>
+                <td class="py-2 px-4 border-b">16545809</td>
+                <td class="py-2 px-4 border-b">Andreas Reyliando</td>
+                <td class="py-2 px-4 border-b">Manajemen Informatika</td>
+                <td class="py-2 px-4 border-b">2022</td>
+            </tr>
+            <tr>
+                <td class="py-2 px-4 border-b">16323089</td>
+                <td class="py-2 px-4 border-b">Arfaksyad Gani</td>
+                <td class="py-2 px-4 border-b">Teknik Listrik</td>
+                <td class="py-2 px-4 border-b">2023</td>
+            </tr>
+            <tr>
+                <td class="py-2 px-4 border-b">18182373</td>
+                <td class="py-2 px-4 border-b">Delila Natalia</td>
+                <td class="py-2 px-4 border-b">Teknik Listrik</td>
+                <td class="py-2 px-4 border-b">2023</td>
+            </tr>
+            <tr>
+                <td class="py-2 px-4 border-b">15223451</td>
+                <td class="py-2 px-4 border-b">Diana Pratama</td>
+                <td class="py-2 px-4 border-b">Manajemen Informatika</td>
+                <td class="py-2 px-4 border-b">2023</td>
+            </tr>
+            <tr>
+                <td class="py-2 px-4 border-b">15223452</td>
+                <td class="py-2 px-4 border-b">Daina Pratama</td>
+                <td class="py-2 px-4 border-b">Manajemen Informatika</td>
+                <td class="py-2 px-4 border-b">2023</td>
+            </tr>
+            <tr>
+                <td class="py-2 px-4 border-b">124465787</td>
+                <td class="py-2 px-4 border-b">Alvaro Giovani</td>
+                <td class="py-2 px-4 border-b">Agroindustri</td>
+                <td class="py-2 px-4 border-b">2023</td>
+            </tr>
+            <tr>
+                <td class="py-2 px-4 border-b">16323038</td>
+                <td class="py-2 px-4 border-b">Masita Gani</td>
+                <td class="py-2 px-4 border-b">Manajemen Informatika</td>
+                <td class="py-2 px-4 border-b">2023</td>
+                
+            </tr>
+            <tr>
+                <td class="py-2 px-4 border-b">14578020</td>
+                <td class="py-2 px-4 border-b">Ramli Keliolan</td>
+                <td class="py-2 px-4 border-b">Teknik Listrik</td>
+                <td class="py-2 px-4 border-b">2023</td>
+            </tr>
+            <tr>
+                <td class="py-2 px-4 border-b">16323090</td>
+                <td class="py-2 px-4 border-b">Renata Adilisyah</td>
+                <td class="py-2 px-4 border-b">Manajemen Informatika</td>
+                <td class="py-2 px-4 border-b">2021</td>
+            </tr>
+            <tr>
+                <td class="py-2 px-4 border-b">14578028</td>
+                <td class="py-2 px-4 border-b">Riana Ramadani Siahaan</td>
+                <td class="py-2 px-4 border-b">Manajemen Informatika</td>
+                <td class="py-2 px-4 border-b">2021</td>
+            </tr>
+            <tr>
+                <td class="py-2 px-4 border-b">17890513</td>
+                <td class="py-2 px-4 border-b">Renita Natasya</td>
+                <td class="py-2 px-4 border-b">Rekayasa Jalan dan Jembatan</td>
+                <td class="py-2 px-4 border-b">2015</td>
+            </tr>
+            <tr>
+                <td class="py-2 px-4 border-b">13404231</td>
+                <td class="py-2 px-4 border-b">Ridwan Tanggahma</td>
+                <td class="py-2 px-4 border-b">Teknik Mesin</td>
+                <td class="py-2 px-4 border-b">2023</td>
+            </tr>
+            <tr>
+                <td class="py-2 px-4 border-b">12572739</td>
+                <td class="py-2 px-4 border-b">Rifaldo Alansyah Putra</td>
+                <td class="py-2 px-4 border-b">Teknik Mesin</td>
+                <td class="py-2 px-4 border-b">2022</td>
+            </tr>
+            <tr>
+                <td class="py-2 px-4 border-b">163238959</td>
+                <td class="py-2 px-4 border-b">Sarvia Gani</td>
+                <td class="py-2 px-4 border-b">Manajemen Informatika</td>
+                <td class="py-2 px-4 border-b">2018</td>
+            </tr>
+            <tr>
+                <td class="py-2 px-4 border-b">163230465</td>
+                <td class="py-2 px-4 border-b">Putriyani Florensia</td>
+                <td class="py-2 px-4 border-b">Agroindustri</td>
+                <td class="py-2 px-4 border-b">2022</td>
+            </tr>
+            <tr>
+                <td class="py-2 px-4 border-b">11011246</td>
+                <td class="py-2 px-4 border-b">Wanda Kibas</td>
+                <td class="py-2 px-4 border-b">Manajemen Informatika</td>
+                <td class="py-2 px-4 border-b">2023</td>
+            </tr>
+            <tr>
+                <td class="py-2 px-4 border-b">1632047</td>
+                <td class="py-2 px-4 border-b">Yayan Sihombing</td>
+                <td class="py-2 px-4 border-b">Manajemen Informatika</td>
+                <td class="py-2 px-4 border-b">2015</td>
+            </tr>
+        </tbody>
+      </table>
+      <div class="pagination">
+        <button id="prevPage">Previous</button>
+        <span id="pageInfo"></span>
+        <button id="nextPage">Next</button>
+      </div>
     </div>
+  </div>
 
-    <!-- DataTables JS and dependencies -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
-    <script>
-        function goBack() {
-            window.location.href = 'landing-stlhlogin.html';
-        }
-    
-        const sidebar = document.getElementById('sidebar');
-        const toggleButton = document.getElementById('toggle-button');
-        toggleButton.addEventListener('click', () => {
-            sidebar.classList.toggle('inactive');
+
+  <script>
+     document.getElementById('toggleButton').addEventListener('click', function() {
+            var sidebar = document.getElementById('sidebar');
+            var content = document.querySelector('.content');
+            if (sidebar.classList.contains('active')) {
+                sidebar.classList.remove('active');
+                content.classList.remove('shift');
+            } else {
+                sidebar.classList.add('active');
+                content.classList.add('shift');
+            }
         });
-    
-        $(document).ready(function() {
-            var table = $('#alumniTable').DataTable({
-                "pageLength": 10, // Adjust the default number of records per page
-                "searching": true, // Enable the search box
-                "lengthChange": false,
-                "dom": 'lrtip' // Remove the default search bar but keep other elements
-            });
-    
-            // Custom search input handling
-            $('#searchInput').on('keyup', function() {
-                table.search(this.value).draw();
-            });
-        });
-    </script>
-    
-    
+  </script>
+  <script src="daftar.js"></script>
 </body>
-
 </html>
