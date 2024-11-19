@@ -3,16 +3,117 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Toggle Sidebar</title>
+  <title>Toggle Sidebar with Survey</title>
   <link rel="stylesheet" href="daftar.css">
   <style>
     body {
-    background-image: url('geometrci blue.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-}
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-image: url('geometrci blue.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
 
+    .container {
+      text-align: center;
+    }
 
+    .content {
+      position: relative;
+      width: 100%;
+      margin-left: 250px;
+      transition: margin-left 0.3s ease;
+    }
+
+    .sidebar {
+      width: 250px;
+      height: 100%;
+      background-color: #333;
+      position: fixed;
+      top: 0;
+      left: 0;
+      padding-top: 50px;
+      transition: transform 0.3s ease;
+      transform: translateX(-250px);
+    }
+
+    .sidebar.active {
+      transform: translateX(0);
+    }
+
+    .sidebar ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .sidebar ul li {
+      margin: 20px 0;
+    }
+
+    .sidebar ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      display: block;
+      padding: 10px 20px;
+    }
+
+    .toggle-button {
+      position: fixed;
+      top: 15px;
+      left: 15px;
+      background-color: #333;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      cursor: pointer;
+      font-size: 20px;
+      z-index: 1000;
+    }
+
+    .survey {
+      margin: 0 auto;
+      max-width: 600px;
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .survey h1 {
+      font-size: 2.5rem;
+      color: #424242;
+    }
+
+    .survey .subtitle {
+      font-size: 1rem;
+      color: #757575;
+      margin: 10px 0;
+    }
+
+    .survey-bar {
+      margin: 20px auto;
+      background-color: #4db6ac; /* Matches the teal-green color */
+      border-radius: 5px;
+      padding: 15px;
+      color: white;
+      font-size: 1.2rem;
+      font-weight: bold;
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      text-transform: uppercase;
+      width: 100%;
+      text-align: center;
+    }
+
+    .survey-bar:hover {
+      background-color: #399c91; /* Slightly darker teal for hover effect */
+    }
   </style>
 </head>
 <body>
@@ -28,21 +129,25 @@
     </ul>
   </div>
 
-  
-
+  <div class="content">
+    <div class="container">
+      <div class="survey">
+        <h1>Mulai <span style="color: #8bc34a;">Survey</span></h1>
+        <p class="subtitle">Silahkan masuk untuk memulai survey tracer study</p>
+        <div class="survey-bar">SMK</div>
+      </div>
+    </div>
+  </div>
 
   <script>
-     document.getElementById('toggleButton').addEventListener('click', function() {
-            var sidebar = document.getElementById('sidebar');
-            var content = document.querySelector('.content');
-            if (sidebar.classList.contains('active')) {
-                sidebar.classList.remove('active');
-                content.classList.remove('shift');
-            } else {
-                sidebar.classList.add('active');
-                content.classList.add('shift');
-            }
-        });
+    document.getElementById('toggleButton').addEventListener('click', function () {
+      var sidebar = document.getElementById('sidebar');
+      if (sidebar.classList.contains('active')) {
+        sidebar.classList.remove('active');
+      } else {
+        sidebar.classList.add('active');
+      }
+    });
   </script>
   <script src="daftar.js"></script>
 </body>
