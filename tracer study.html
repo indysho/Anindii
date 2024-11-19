@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tracer Study Politeknik Negeri Fakfak</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="form-container">
+        <h1>Tracer Study - Politeknik Negeri Fakfak</h1>
+        <form action="#" method="POST">
+            <!-- Pertanyaan 1 -->
+            <label for="job-time">Berapa lama waktu yang Anda butuhkan untuk mendapatkan pekerjaan pertama setelah lulus?</label>
+            <select id="job-time" name="job-time" required>
+                <option value="" disabled selected>Pilih salah satu</option>
+                <option value="less-3-months">Kurang dari 3 bulan</option>
+                <option value="3-6-months">3-6 bulan</option>
+                <option value="6-12-months">6-12 bulan</option>
+                <option value="more-1-year">Lebih dari 1 tahun</option>
+                <option value="not-working">Belum bekerja</option>
+            </select>
+
+            <!-- Pertanyaan 2 -->
+            <label for="job-type">Apa pekerjaan pertama Anda setelah lulus?</label>
+            <input type="text" id="job-type" name="job-type" placeholder="Masukkan jabatan dan bidang industri" required>
+
+            <!-- Pertanyaan 3 -->
+            <label for="current-job">Apakah pekerjaan Anda saat ini sesuai dengan bidang studi Anda?</label>
+            <select id="current-job" name="current-job" required>
+                <option value="" disabled selected>Pilih salah satu</option>
+                <option value="very-related">Sangat sesuai</option>
+                <option value="related">Sesuai</option>
+                <option value="not-related">Tidak sesuai</option>
+                <option value="unrelated">Tidak sama sekali</option>
+            </select>
+
+            <!-- Pertanyaan 4 -->
+            <label for="income">Berapa rata-rata pendapatan bulanan Anda saat ini?</label>
+            <select id="income" name="income" required>
+                <option value="" disabled selected>Pilih salah satu</option>
+                <option value="below-3m">Kurang dari 3 juta</option>
+                <option value="3-5m">3-5 juta</option>
+                <option value="5-10m">5-10 juta</option>
+                <option value="above-10m">Lebih dari 10 juta</option>
+            </select>
+
+            <!-- Pertanyaan 5 -->
+            <label for="skills">Apa keterampilan utama dari Politeknik yang membantu pekerjaan Anda?</label>
+            <input type="text" id="skills" name="skills" placeholder="Contoh: teknis, komunikasi, dll." required>
+
+            <!-- Pertanyaan 6 -->
+            <label for="education-impact">Seberapa besar kontribusi pendidikan di Politeknik untuk pekerjaan Anda?</label>
+            <select id="education-impact" name="education-impact" required>
+                <option value="" disabled selected>Pilih salah satu</option>
+                <option value="very-high">Sangat besar</option>
+                <option value="high">Cukup besar</option>
+                <option value="medium">Sedang</option>
+                <option value="low">Kecil</option>
+                <option value="none">Tidak ada</option>
+            </select>
+
+            <!-- Pertanyaan 7 -->
+            <label for="suggestions">Apa saran Anda untuk meningkatkan kualitas Politeknik Negeri Fakfak?</label>
+            <textarea id="suggestions" name="suggestions" placeholder="Masukkan saran Anda di sini..." rows="4" required></textarea>
+
+            <!-- Submit Button -->
+            <button type="submit">Kirim</button>
+        </form>
+    </div>
+</body>
+</html>
