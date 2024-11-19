@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toggle Sidebar</title>
+  <link rel="stylesheet" href="daftar.css">
+  <style>
+    body {
+    background-image: url('geometrci blue.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+  </style>
+</head>
+<body>
+  <button class="toggle-button" id="toggleButton">☰</button>
+
+  <div class="sidebar inactive" id="sidebar">
+    <ul>
+      <br><br><br>
+      <li><a href="daftar.html">Alumni List</a></li>
+      <li><a href="form_tracer.html">Form Tracer Study</a></li>
+      <li><a href="dashboard.html">Dashboard Tracer Study</a></li>
+      <li><a href="index.html" id="goBackLink">Go Back</a></li>
+    </ul>
+  </div>
+
+  
+
+
+  <script>
+     document.getElementById('toggleButton').addEventListener('click', function() {
+            var sidebar = document.getElementById('sidebar');
+            var content = document.querySelector('.content');
+            if (sidebar.classList.contains('active')) {
+                sidebar.classList.remove('active');
+                content.classList.remove('shift');
+            } else {
+                sidebar.classList.add('active');
+                content.classList.add('shift');
+            }
+        });
+  </script>
+  <script src="daftar.js"></script>
+</body>
+</html>
